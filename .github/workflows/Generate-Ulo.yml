@@ -86,7 +86,7 @@ jobs:
             "target": [
               "Amlogic s905x2-FJ",
               "Amlogic s905x2-V5",
-              "Amlogic s905X4",
+              "Amlogic s905x4",
               "Allwinner H5 Orange Pi Zero Plus2",
               "Allwinner H5 Orange Pi Zero Plus",
               "Allwinner H6 Orange Pi 3",
@@ -276,7 +276,7 @@ jobs:
                 TARGET_BUILD="s905x2-v5"
                 echo "TARGET_BUILD=$TARGET_BUILD" >> $GITHUB_ENV
                 ;;
-            "Amlogic s905X4")
+            "Amlogic s905x4")
                 KERNEL="5.4.279_6.1.66-DBAI"
                 echo "KERNEL=$KERNEL" >> $GITHUB_ENV
                 TARGET_BUILD="s905x4"
