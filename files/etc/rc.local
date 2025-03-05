@@ -1,0 +1,10 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+# Auto mount disk drive on startup
+# change to your drive path and uncomment below
+# oc - openclash - nikki #
+#sh /usr/bin/jam_oc.sh tr.line.me
+#sh /usr/bin/jam_nikki.sh tr.line.me
+#sleep 4 && /usr/bin/hgled -r
+
+exit 0
