@@ -277,7 +277,7 @@ jobs:
                 echo "TARGET_BUILD=$TARGET_BUILD" >> $GITHUB_ENV
                 ;;
             "Amlogic s905x4")
-                KERNEL="5.4.279_6.1.66-DBAI"
+                KERNEL="5.4.279"
                 echo "KERNEL=$KERNEL" >> $GITHUB_ENV
                 TARGET_BUILD="s905x4"
                 echo "TARGET_BUILD=$TARGET_BUILD" >> $GITHUB_ENV
