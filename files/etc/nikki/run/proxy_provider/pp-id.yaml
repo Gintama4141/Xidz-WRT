@@ -1,35 +1,38 @@
-# CONTOH FORMAT
-# https://blog.vpngame.com/openwrt/kumpulan-daftar-format-akun-untuk-openclash/
 proxies:
-- name: Vmess WS
-  # interface-name: eth1
+# ◉ⓌⓁⒼ ◉ⓌⓈ ◉ⓈⓃⒾ #
+- name: IDK1-Indosat
+  # interface-name: wwan0
+  server: quiz.int.vidio.com
   type: vmess
-  server: SERVER.COM
   port: 443
-  uuid: UUID
+  uuid: 9c7c7039-a5f1-47b2-9225-cbb5bf03b9e6
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: serv1.idks1.web.id
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: serv1.idks1.web.id
+  udp: true
+- name: IKD
+  # interface-name: wwan0
+  type: vmess
+  server: quiz.int.vidio.com
+  port: 443
+  uuid: 3c7fdd34-af74-4659-be84-a76881235442
   alterId: 0
   cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: SERVER.COM
+  servername:  ikd.sing-box.icu
   network: ws
   ws-opts:
-    path: /PATH
+    path: /mwk/buy-vmess-upgrade-pm-telegram-at-synricha
     headers:
-      Host: SERVER.COM
-
-- name: Trojan WS
-  # interface-name: eth1
-  server: SERVER.COM
-  port: 443
-  type: trojan
-  password: PASSWORD
-  skip-cert-verify: true
-  sni: SERVER.COM
-  network: ws
-  ws-opts:
-    path: /PATH
-    headers:
-      Host: SERVER.COM
-  udp: true
+      Host: ikd.sing-box.icu
+    v2ray-http-upgrade: true
+    v2ray-http-upgrade-fast-open: false
