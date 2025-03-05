@@ -154,7 +154,7 @@ repackwrt() {
         # Run UloBuilder
         log "INFO" "Running UloBuilder..."
         local readonly rootfs_basename=$(basename "${target_path}")
-        if ! sudo ./ulo -y -m "${target_board}" -r "${rootfs_basename}" -k "${target_kernel}" -s 756; then
+        if ! sudo ./ulo -y -m "${target_board}" -r "${rootfs_basename}" -k "${target_kernel}" -s 1024; then
             error_msg "UloBuilder execution failed"
             exit 1
         fi
