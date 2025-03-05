@@ -1,0 +1,67 @@
+proxy-providers:
+  🇮🇩VPN 1🇮🇩:
+    type: file
+    path: "./proxy_provider/pp-id.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 99
+  🇸🇬VPN 2🇸🇬:
+    type: file
+    path: "./proxy_provider/pp-sg.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 99
+proxy-groups:
+- name: 🌐INTERNET📡
+  type: select
+  disable-udp: false
+  proxies:
+  - 🇮🇩VPN 1🇮🇩
+  - 🇸🇬VPN 2🇸🇬
+  - 🔰URL-TEST🔰
+  - ☢️LOADBALANCE☢️
+  - ☣️FALLBACK☣️
+- name: 🇮🇩VPN 1🇮🇩
+  type: fallback
+  disable-udp: false
+  use:
+  - 🇮🇩VPN 1🇮🇩
+  url: http://www.gstatic.com/generate_204
+  interval: '30'
+- name: 🇸🇬VPN 2🇸🇬
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  use:
+  - 🇸🇬VPN 2🇸🇬
+  url: http://www.gstatic.com/generate_204
+  interval: '30'
+- name: 🔰URL-TEST🔰
+  type: url-test
+  disable-udp: false
+  proxies:
+  - 🇮🇩VPN 1🇮🇩
+  - 🇸🇬VPN 2🇸🇬
+  url: http://www.gstatic.com/generate_204
+  interval: '30'
+- name: ☢️LOADBALANCE☢️
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+  - 🇮🇩VPN 1🇮🇩
+  - 🇸🇬VPN 2🇸🇬
+  url: http://www.gstatic.com/generate_204
+  interval: '30'
+- name: ☣️FALLBACK☣️
+  type: fallback
+  disable-udp: false
+  proxies:
+  - 🇮🇩VPN 1🇮🇩
+  - 🇸🇬VPN 2🇸🇬
+  url: http://www.gstatic.com/generate_204
+  interval: '30'
+rules:
+  - MATCH,🌐INTERNET📡
