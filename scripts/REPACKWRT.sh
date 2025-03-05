@@ -57,7 +57,7 @@ repackwrt() {
 
     # Define constants
     local readonly OPHUB_REPO="https://github.com/onexidz/amlogic-s9xxx-openwrt/archive/refs/heads/main.zip"
-    local readonly ULO_REPO="https://github.com/armarchindo/ULO-Builder/archive/refs/heads/main.zip"
+    local readonly ULO_REPO="https://github.com/onexidz/ULO-Builder/archive/refs/heads/main.zip"
     local readonly work_dir="$GITHUB_WORKSPACE/$WORKING_DIR"
     
     # Setup directories based on builder type

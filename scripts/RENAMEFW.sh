@@ -59,7 +59,8 @@ rename_firmware() {
         "-xunlong_orangepi-zero3-|Orangepi-Zero3-Sunxi-Cortexa53"
         
         # Amlogic ULO
-        "-s905x2-|Amlogic_s905x2"
+        "-s905x2-v5-|Amlogic_s905x2-B860Hv5"
+        "-s905x2-fj-|Amlogic_s905x2-HG680-FJ"
         "-s905x3-|Amlogic_s905x3"
         "-s905x4-|Amlogic_s905x4"
         
