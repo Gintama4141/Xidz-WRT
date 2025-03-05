@@ -20,8 +20,9 @@ on:
         type: choice
         options:
           - all-device
-          - Amlogic s905X2
-          - Amlogic s905X4
+          - Amlogic s905x2-FJ
+          - Amlogic s905x2-V5
+          - Amlogic s905x4
           - Allwinner H5 Orange Pi Zero Plus2
           - Allwinner H5 Orange Pi Zero Plus
           - Allwinner H6 Orange Pi 3
@@ -83,7 +84,8 @@ jobs:
           TARGET_JSON=$(cat << 'EOJ'
           {
             "target": [
-              "Amlogic s905X2",
+              "Amlogic s905x2-FJ",
+              "Amlogic s905x2-V5",
               "Amlogic s905X4",
               "Allwinner H5 Orange Pi Zero Plus2",
               "Allwinner H5 Orange Pi Zero Plus",
@@ -262,10 +264,16 @@ jobs:
           echo "ARCH_3=aarch64_generic" >> $GITHUB_ENV
 
           case "$MATRIXTARGET" in
-            "Amlogic s905X2")
+            "Amlogic s905x2-FJ")
                 KERNEL="6.1.66-DBAI"
                 echo "KERNEL=$KERNEL" >> $GITHUB_ENV
-                TARGET_BUILD="s905x2"
+                TARGET_BUILD="s905x2-fj"
+                echo "TARGET_BUILD=$TARGET_BUILD" >> $GITHUB_ENV
+                ;;
+            "Amlogic s905x2-V5")
+                KERNEL="6.1.66-DBAI"
+                echo "KERNEL=$KERNEL" >> $GITHUB_ENV
+                TARGET_BUILD="s905x2-v5"
                 echo "TARGET_BUILD=$TARGET_BUILD" >> $GITHUB_ENV
                 ;;
             "Amlogic s905X4")
