@@ -1,35 +1,108 @@
-# CONTOH FORMAT
-# https://blog.vpngame.com/openwrt/kumpulan-daftar-format-akun-untuk-openclash/
-proxies:
-- name: Vmess WS
-  # interface-name: eth1
-  type: vmess
-  server: SERVER.COM
-  port: 443
-  uuid: UUID
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: SERVER.COM
-  network: ws
-  ws-opts:
-    path: /PATH
-    headers:
-      Host: SERVER.COM
+# Z-NETWORK ✨
+# AKUN CLOUDFLARE KONFIGURASI
+# FORMAT VLESS WS DAN TROJAN WS NEW ALL TLS
 
-- name: Trojan WS
-  # interface-name: eth1
-  server: SERVER.COM
+FORMAT1: &VL_WS
   port: 443
-  type: trojan
-  password: PASSWORD
-  skip-cert-verify: true
-  sni: SERVER.COM
-  network: ws
-  ws-opts:
-    path: /PATH
-    headers:
-      Host: SERVER.COM
+  type: vless
+  cipher: auto
+  tls: true
   udp: true
+  skip-cert-verify: true
+  network: ws
+
+
+BUG:
+#xlvideo
+ - &bug1 104.22.4.240
+ - &bug2 104.22.5.240
+ - &bug3 quiz.int.vidio.com
+ 
+CLOUDFLARE KEY:
+ - &key1 180b5ea1-d421-4b24-b4a9-c38beadab6f0
+ - &key2 65bc42a0-1bdf-4c25-8866-cffd05f86d03
+ - &key3 fea15fbb-b5df-466d-aa7e-fa7a0718b68e
+ - &key4 e881df0a-c665-496c-8487-c6c44b343e7d
+ - &key5 1c48c6c9-3d93-485a-ba0a-b32b48ca609b
+
+PROXY IP PORT:
+#ID
+ - &id1 /103.6.207.108-8080 #PUSAT MEDIA 
+ - &id2 /203.194.112.119-8443 #RUMAH WEB 
+#SG
+ - &sg1 /138.2.89.238--43254 #Oracle Cloud
+ - &sg2 /138.2.74.219-28616 #CF WARP
+ - &sg3 /194.127.193.124-24467 #Leaseweb Asia
+ - &sg4 /83.142.30.5-2096 #Streamline Servers
+ - &sg5 /?ed=2048
+ - &sg6 /
+
+WILDCARD:
+#NONE / FOR ID NAME
+ - &wild1 nautica.foolvpn.me
+ - &wild2 tedjo.cepu.us.kg
+ - &wild3 wilo.luckystup-id.xyz
+ - &wild4 jrflasher.jrmpv.biz.id
+ - &wild5 mwkwrt.us.kg
+#POINTING / FOR SG NAME
+ - &wilda quiz.int.vidio.com.nautica.foolvpn.me
+ - &wildb quiz.int.vidio.com.wilo.luckystup-id.xyz
+ - &wildc quiz.int.vidio.com.auto.bosmusik.com
+ - &wildd quiz.int.vidio.com.jrflasher.jrmpv.biz.id
+ - &wilde quiz.int.vidio.com.mwkwrt.us.kg
+
+
+
+#######################################################
+#name/host  samain ja biar ga bgg mantau di YACD (bebas jg bisa hps tanda "*")
+#servername/sni dgn host wajib sama kalo beda ping ga kluar!!
+#name tidak boleh sama per 1 proxy sm lain (biar ping di control ga nabrak)
+#jangan pakai SIMBOL ATOPUN EMOJI nanti kadang eror!!
+
+proxies:
+  - name: *wild5
+    <<: *VL_WS
+    server: *bug3
+    servername: *wilde
+    uuid: *key5
+    ws-opts:
+      path: *sg5
+      headers:
+        Host: *wilde
+  - name: *wild1
+    <<: *VL_WS
+    server: *bug3
+    servername: *wilda
+    uuid: *key1
+    ws-opts:
+      path: *sg1
+      headers:
+        Host: *wilda
+
+  - name: *wild2
+    <<: *VL_WS
+    server: *bug3
+    servername: *wildb
+    uuid: *key2
+    ws-opts:
+      path: *sg2
+      headers:
+        Host: *wildb
+  - name: *wild3
+    <<: *VL_WS
+    server: *bug3
+    servername: *wildc
+    uuid: *key3
+    ws-opts:
+      path: *sg3
+      headers:
+        Host: *wildc
+  - name: *wild4
+    <<: *VL_WS
+    server: *bug3
+    servername: *wildd
+    uuid: *key4
+    ws-opts:
+      path: *sg4
+      headers:
+        Host: *wildd
