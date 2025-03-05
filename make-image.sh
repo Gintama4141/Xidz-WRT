@@ -87,7 +87,7 @@ handle_profile_packages() {
     fi
 
     case "${TYPE}" in
-        "OPHUB"|"ULO")
+        "OPHUB")
             PACKAGES+=" btrfs-progs kmod-fs-btrfs luci-app-amlogic"
             EXCLUDED+=" -procd-ujail"
             ;;
